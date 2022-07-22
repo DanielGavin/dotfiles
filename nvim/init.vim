@@ -19,6 +19,7 @@ set lazyredraw
 set ignorecase
 set ai "Auto indent
 set si "Smart indent
+set relativenumber
 
 filetype plugin indent on
 
