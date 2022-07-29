@@ -20,4 +20,10 @@ nmap <C-w><right> <C-w>>
 nmap <C-w><up> <C-w>+
 nmap <C-w><down> <C-w>-
 
-nnoremap <F3> :e $MYVIMRC<CR>
+nnoremap <F3> :e $MYVIMRC <bar> :cd %:h <CR>
+
+" nvim-tree
+nnoremap <silent> ;t :NvimTreeToggle <CR>
+
+
+

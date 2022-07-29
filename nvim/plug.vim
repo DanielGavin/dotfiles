@@ -11,8 +11,11 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'onsails/lspkind-nvim'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'glepnir/lspsaga.nvim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mfussenegger/nvim-dap'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()

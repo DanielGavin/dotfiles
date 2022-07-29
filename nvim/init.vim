@@ -52,3 +52,5 @@ if exists("&termguicolors") && exists("&winblend")
   runtime ./colors/NeoSolarized.vim
   colorscheme NeoSolarized
 endif
+
+let $FZF_DEFAULT_COMMAND = 'fd --type f'
