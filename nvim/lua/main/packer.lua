@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
+  use 'ray-x/lsp_signature.nvim'
+  use 'Tetralux/odin.vim'
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',

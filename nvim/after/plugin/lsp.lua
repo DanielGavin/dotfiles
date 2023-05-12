@@ -17,6 +17,15 @@ require('lspconfig').ols.setup({
   filetypes  = { "odin" }
 })
 
+require('lsp_signature').setup({})
+
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+lsp.format_on_save({
+  servers = {
+    ['ols'] = {'odin'},
+  }
+})
+
 
 lsp.setup()
