@@ -6,6 +6,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- these will be buffer-local keybindings
     -- because they only work if you have an active language server
 
+    vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
+
     vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
@@ -19,24 +21,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-local cmp = require('cmp')
-
-cmp.setup({
-  sources = {
-    {name = 'nvim_lsp'},
-  },
-  mapping = cmp.mapping.preset.insert({
-    -- Enter key confirms completion item
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
-
-    -- Ctrl + space triggers completion menu
-    ['<C-Space>'] = cmp.mapping.complete(),
-  }),
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-})
+vim.lsp.enable("ols")
