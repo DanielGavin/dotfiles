@@ -24,9 +24,14 @@ vim.keymap.set("n", "sj", "<C-w>j")
 vim.keymap.set("n", "sl", "<C-w>l")
 
 
+-- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
 
+--- perforce 
+vim.keymap.set("n", "<leader>p4a", ":P4Add<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>p4e", ":P4Checkout<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>p4t", ":P4CheckedInTelescope<CR>", { noremap = true, silent = true })
