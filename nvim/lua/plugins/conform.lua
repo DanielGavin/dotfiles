@@ -1,9 +1,6 @@
 return {
     "stevearc/conform.nvim",
     cmd = "ConformInfo",
-    event = function()
-      return require("internal.events").lazyFile
-    end,
     opts = {
       notify_on_error = false,
       formatters_by_ft = {
