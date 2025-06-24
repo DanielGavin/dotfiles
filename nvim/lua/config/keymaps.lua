@@ -29,9 +29,22 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
+vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'document symbols' })
+vim.keymap.set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'workspace symbols' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
---- perforce 
+-- perforce 
 vim.keymap.set("n", "<leader>p4a", ":P4Add<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>p4e", ":P4Checkout<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>p4t", ":P4CheckedInTelescope<CR>", { noremap = true, silent = true })
+
+-- terminal
+local job_id = 0
+
+vim.keymap.set("n", "<leader>st", function ()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 5)
+    job_id = vim.bo.channel;
+end)
