@@ -2,49 +2,63 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local set = vim.keymap.set
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+set("n", "<leader>pv", vim.cmd.Ex)
 
-vim.keymap.set("n", "J", "mzJ`z")
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+set("n", "J", "mzJ`z")
 
-vim.keymap.set("x", "<leader>p", "\"_dP")
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
 
-vim.keymap.set("n", "ss", ":split<Return><C-w>w")
-vim.keymap.set("n", "sv", ":vsplit<Return><C-w>w")
+set("x", "<leader>p", "\"_dP")
 
-vim.keymap.set("n", "sh", "<C-w>h")
-vim.keymap.set("n", "sk", "<C-w>k")
-vim.keymap.set("n", "sj", "<C-w>j")
-vim.keymap.set("n", "sl", "<C-w>l")
+-- controlling splits 
+set("n", "ss", ":split<Return><C-w>w")
+set("n", "sv", ":vsplit<Return><C-w>w")
+set("n", "sh", "<C-w>h")
+set("n", "sk", "<C-w>k")
+set("n", "sj", "<C-w>j")
+set("n", "sl", "<C-w>l")
+set("n", "<M-,>", "<c-w>5<")
+set("n", "<M-.>", "<c-w>5>")
+set("n", "<M-t>", "<C-W>+")
+set("n", "<M-s>", "<C-W>-")
 
-
--- telescope
+-- Telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'document symbols' })
-vim.keymap.set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'workspace symbols' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'document symbols' })
+set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'workspace symbols' })
+set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
--- perforce 
-vim.keymap.set("n", "<leader>p4a", ":P4Add<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>p4e", ":P4Checkout<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>p4t", ":P4CheckedInTelescope<CR>", { noremap = true, silent = true })
+-- Perforce 
+set("n", "<leader>p4a", ":P4Add<CR>", { noremap = true, silent = true })
+set("n", "<leader>p4e", ":P4Checkout<CR>", { noremap = true, silent = true })
+set("n", "<leader>p4t", ":P4CheckedInTelescope<CR>", { noremap = true, silent = true })
 
--- terminal
+-- Terminal
 local job_id = 0
 
-vim.keymap.set("n", "<leader>st", function ()
+set("n", "<leader>st", function ()
     vim.cmd.vnew()
     vim.cmd.term()
     vim.cmd.wincmd("J")
     vim.api.nvim_win_set_height(0, 5)
     job_id = vim.bo.channel;
+end)
+
+-- Diagnostics
+
+
+-- LSP
+set("n", "<space>tt", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = 0 }, { bufnr = 0 })
 end)
