@@ -18,9 +18,9 @@ return {
             require("nvim-dap-virtual-text").setup {}
 
             dap.adapters.cppvsdbg = {
-                id = 'cppdbg',
+                id = 'cppvsdbg',
                 type = 'executable',
-                command = 'C:\\bins\\cpptools\\debugAdapters\\bin\\openDebugAD7.exe',
+                command = 'C:\\bins\\cpptools\\debugAdapters\\bin\\OpenDebugAD7.exe',
                 options = {
                     detached = false
                 }
