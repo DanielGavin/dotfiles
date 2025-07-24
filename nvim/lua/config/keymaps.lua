@@ -40,9 +40,8 @@ set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'workspace symbol
 set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
 -- Perforce 
-set("n", "<leader>p4a", ":P4Add<CR>", { noremap = true, silent = true })
-set("n", "<leader>p4e", ":P4Checkout<CR>", { noremap = true, silent = true })
-set("n", "<leader>p4t", ":P4CheckedInTelescope<CR>", { noremap = true, silent = true })
+set("n", "<leader>p4a", ":Vp4Add<CR>", { noremap = true, silent = true })
+set("n", "<leader>p4r", ":Vp4Revert<CR>", { noremap = true, silent = true })
 
 -- Terminal
 local job_id = 0
