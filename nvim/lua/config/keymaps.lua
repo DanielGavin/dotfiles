@@ -39,10 +39,6 @@ set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'document symbols'
 set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'workspace symbols' })
 set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
--- Perforce 
-set("n", "<leader>p4a", ":Vp4Add<CR>", { noremap = true, silent = true })
-set("n", "<leader>p4r", ":Vp4Revert<CR>", { noremap = true, silent = true })
-
 -- Terminal
 local job_id = 0
 
